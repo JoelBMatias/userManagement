@@ -5,8 +5,8 @@ import { Client } from 'pg';
 
 // Database connection Object
 const dbConnection = {
-  user: 'netinvoice',
-  host: 'localhost',
+  user: 'postgres',
+  host: 'postgres',
   database: 'userManager',
   password: '',
   port: 5432

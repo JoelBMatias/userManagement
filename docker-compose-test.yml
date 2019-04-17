@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: npm run test
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "8080:8080"
+      - "5432:5432"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+  postgres:
+    image: postgres:9.6.2-alpine
+    volumes:
+      - ./database/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: userManager

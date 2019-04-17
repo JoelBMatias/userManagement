@@ -5,7 +5,7 @@
   "main": "dest/server.js",
   "scripts": {
     "build": "gulp build",
-    "start": "gulp",
+    "start": "node dest/server.js",
     "test": "node_modules/.bin/ava tests/**/*.test.js --verbose"
   },
   "author": "Joel Matias",

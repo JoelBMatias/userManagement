@@ -1,6 +1,6 @@
 import { body, check, validationResult } from 'express-validator/check';
 
-export const validator = async (req, _res, next) => {
+export const validator = async (req, _res, _next) => {
   const methodValidation = {
     POST: () => [
       body('email', 'Invalid email')
@@ -25,7 +25,6 @@ export const validator = async (req, _res, next) => {
         .isAlpha()
     ]
   };
-  console.log('RECEIVED REQUEST METHOD', req.method);
   return methodValidation[req.method]();
 
   // req.getValidationResult();
